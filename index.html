@@ -1,7 +1,10 @@
 <!DOCTYPE html>
 
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bliss Remains Official Page</title>
+    <link rel="stylesheet" href="Bliss Remains.css">
 </head>
 
 <body>
@@ -12,15 +15,25 @@
                 <button type="submit">Search</button>
             </form>
 
-            <img src="no-background.jpg" width="100" height="50">
-            |
-            <a href="Home">Home</a> |
-            <a href="About">About</a> |
-            <a href="Merch">Official Merchandise</a> |
+            <a href="Home">Home</a> 
+            <a href="About">About</a> 
+            <a href="Merch">Official Merchandise</a> 
         </nav>
     </header>
     <main>
-        <img src="bliss-remains.jpg" width="500" height="300">
+        <div class="container">
+         <div class="slider-container">
+            <div class="slider" id="slider">
+                <img src="D:\Ngoding\vs\belajar\Testing\1.jpg" width="500" height="300">
+                <img src="D:\Ngoding\vs\belajar\Testing\C0102T01.jpg" alt="Band Photo 2">
+                <img src="D:\Ngoding\vs\belajar\Testing\DSC08119.jpg" alt="Band Photo 3">
+                <img src="D:\Ngoding\vs\belajar\Testing\5.jpg"alt="Band Photo 4">
+                <img src="D:\Ngoding\vs\belajar\Testing\IMG_1141 (1).JPG"alt="Band Photo 5">
+                <img src="D:\Ngoding\vs\belajar\Testing\4.jpg"alt="Band Photo 6">
+            </div>
+            <button class="nav-button prev" onclick="moveSlide(-1)">&#10094;</button>
+            <button class="nav-button next" onclick="moveSlide(1)">&#10095;</button>
+        </div>
         <div>
             <h1>Welcome to Bliss Remains</h1>
             <p>Bliss Remains is a band from Indonesia that was formed in 2021. The band consists of four members:
@@ -54,11 +67,20 @@
         <div></div>
         <h2>Upcoming Events</h2>
         <ul>
-            <li>Live Performance at Coklat Extra Friendship Moment - October 25, 2025
+            <li>Bliss Remains Live Performance at Coklat Extra Friendship Moment - October 25, 2025
                 <a href="https://coklatkita.com">Click Here For More Info!!!</a>
             </li>
         </ul>
         </div>
     </main>
+    <script>
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('#slider img');
+        const totalSlides = slides.length;
 
+        function moveSlide(direction) {
+            currentSlide = (currentSlide + direction + totalSlides) % totalSlides;
+            document.getElementById('slider').style.transform = `translateX(-${currentSlide * 500}px)`;
+        }
+    </script>
 </body>
